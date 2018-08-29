@@ -1,28 +1,28 @@
 {
-  "name": "truffle-hdwallet-provider",
+  "name": "truffle-hdwallet-privkey-provider",
   "version": "0.0.6",
-  "description": "HD Wallet-enabled Web3 provider",
+  "description": "HD Wallet-enabled Web3 provider using private",
   "main": "index.js",
   "scripts": {
     "test": "mocha --timeout 5000"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/trufflesuite/truffle-hdwallet-provider.git"
+    "url": "git+https://github.com/yockii/truffle-hdwallet-privkey-provider.git"
   },
   "keywords": [
     "etheruem",
     "hd",
     "wallet",
-    "mnemonic",
+    "privkey",
     "provider"
   ],
-  "author": "Tim Coulter <tim.coulter@consensys.net>",
+  "author": "Yockii <xuyuqi@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/trufflesuite/truffle-hdwallet-provider/issues"
+    "url": "https://github.com/yockii/truffle-hdwallet-privkey-provider/issues"
   },
-  "homepage": "https://github.com/trufflesuite/truffle-hdwallet-provider#readme",
+  "homepage": "https://github.com/yockii/truffle-hdwallet-privkey-provider#readme",
   "dependencies": {
     "bip39": "^2.2.0",
     "ethereumjs-wallet": "0.6.0",
