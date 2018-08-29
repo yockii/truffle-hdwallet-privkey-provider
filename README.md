@@ -18,15 +18,15 @@ You can use this provider wherever a Web3 provider is needed (for version 0.x), 
 
 ```javascript
 var HDWalletProvider = require("truffle-hdwallet-privkey-provider");
-var privKey = '<Your Private Key>';
-var provider = new HDWalletProvider(privKey, "http://localhost:8545");
+var privKeys = ['<Your Private Key>'];
+var provider = new HDWalletProvider(privKeys, "http://localhost:8545");
 ```
 
 Currently, the `HDWalletProvider` manages only one address at a time, but it can be easily upgraded to manage (i.e., "unlock") multiple addresses.
 
 Parameters:
 
-- `privKey`: `string`. the private key which addresses are created from.
+- `privKeys`: `string`. the private key array which addresses are created from.
 - `provider_uri`: `string`. URI of Ethereum client to send all other non-transaction-related Web3 requests.
 - `index`: `number`, optional. If specified, will tell the provider to manage the address at the index specified. Defaults to the first address (index `0`).
 
@@ -38,7 +38,7 @@ truffle.js
 ```javascript
 var HDWalletProvider = require("truffle-hdwallet-privkey-provider");
 
-var privKey = '<Your Private Key>';
+var privKeys = ['<Your Private Key>'];
 
 module.exports = {
   networks: {
@@ -50,7 +50,7 @@ module.exports = {
     ropsten: {
       // must be a thunk, otherwise truffle commands may hang in CI
       provider: () =>
-        new HDWalletProvider(privKey, "https://ropsten.infura.io/<Your Infura Key>"),
+        new HDWalletProvider(privKeys, "https://ropsten.infura.io/<Your Infura Key>"),
       network_id: '3',
     }
   }

@@ -16,7 +16,7 @@ function HDWalletProvider(privKeys, provider_url, index = 0) {
     if (x >= privKeys.length) {
       x = x - privKeys.length;
     }
-    var _wallet = EthWallet.fromPrivateKey(Buffer.from(privKeys[x], "hex"));
+    var _wallet = EthWallet.fromPrivateKey(Buffer.from(privKeys[x].toLowerCase(), "hex"));
     var _addr = '0x' + _wallet.getAddress().toString('hex');
     this.addresses.push(_addr);
     this.wallets[_addr] = _wallet;
