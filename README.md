@@ -18,20 +18,17 @@ You can use this provider wherever a Web3 provider is needed, not just in Truffl
 
 ```javascript
 var HDWalletProvider = require("truffle-hdwallet-provider");
-var mnemonic = "opinion destroy betray ..."; // 12 word mnemonic
-var provider = new HDWalletProvider(mnemonic, "http://localhost:8545");
-
-// Or, alternatively pass in a zero-based address index.
-var provider = new HDWalletProvider(mnemonic, "http://localhost:8545", 5);
+var privKey = '<Your Private Key>';
+var provider = new HDWalletProvider(privKey, "http://localhost:8545");
 ```
 
-By default, the `HDWalletProvider` will use the address of the first address that's generated from the mnemonic. If you pass in a specific index, it'll use that address instead. Currently, the `HDWalletProvider` manages only one address at a time, but it can be easily upgraded to manage (i.e., "unlock") multiple addresses.
+Currently, the `HDWalletProvider` manages only one address at a time, but it can be easily upgraded to manage (i.e., "unlock") multiple addresses.
 
 Parameters:
 
-- `mnemonic`: `string`. 12 word mnemonic which addresses are created from.
+- `privKey`: `string`. the private key which addresses are created from.
 - `provider_uri`: `string`. URI of Ethereum client to send all other non-transaction-related Web3 requests.
-- `address_index`: `number`, optional. If specified, will tell the provider to manage the address at the index specified. Defaults to the first address (index `0`).
+- `index`: `number`, optional. If specified, will tell the provider to manage the address at the index specified. Defaults to the first address (index `0`).
 
 ## Truffle Usage
 
@@ -41,7 +38,7 @@ truffle.js
 ```javascript
 var HDWalletProvider = require("truffle-hdwallet-provider");
 
-var mnemonic = "opinion destroy betray ...";
+var privKey = '<Your Private Key>';
 
 module.exports = {
   networks: {
@@ -53,7 +50,7 @@ module.exports = {
     ropsten: {
       // must be a thunk, otherwise truffle commands may hang in CI
       provider: () =>
-        new HDWalletProvider(mnemonic, "https://ropsten.infura.io/"),
+        new HDWalletProvider(privKey, "https://ropsten.infura.io/<Your Infura Key>"),
       network_id: '3',
     }
   }
