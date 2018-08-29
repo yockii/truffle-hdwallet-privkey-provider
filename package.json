@@ -1,6 +1,6 @@
 {
   "name": "truffle-hdwallet-privkey-provider",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "HD Wallet-enabled Web3 provider using private",
   "main": "index.js",
   "scripts": {
